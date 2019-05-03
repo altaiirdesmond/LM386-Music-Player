@@ -7,35 +7,6 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 TMRpcm music;
 
-// Track names
-String songList[25] = {
-  "Sorry sorry",
-  "Mr. simple",
-  "Lucifer",
-  "Run devil run",
-  "Track 5",
-  "U r my evrything",
-  "Track 7",
-  "Stay with me",
-  "Track 9",
-  "I'm in love",
-  "Dble trble cple",
-  "Heartbeat",
-  "U r my garden",
-  "This love",
-  "If we wer dstined",
-  "I'll be fine",
-  "You and I",
-  "Dreaming",
-  "Good morning",
-  "Stay with me",
-  "Everytime",
-  "As if its ur lst",
-  "Ddu Ddu Ddu",
-  "When I saw u",
-  "Beautiful life"
-};
-
 // Pins
 const int CHANGETRACK_PIN = 2;
 const int PLAYPAUSE_PIN = 3;
@@ -98,12 +69,16 @@ void loop() {
     lcd.setCursor(0, 0);
     lcd.print("Now playing");
     lcd.setCursor(0, 1);
-    lcd.print(songList[songNumber - 1]);
+    lcd.print("Track:");
+	lcd.setCursor(7, 1);
+    lcd.print(songNumber);
   }else{
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("Paused");
     lcd.setCursor(0, 1);
-    lcd.print(songList[songNumber - 1]);
+    lcd.print("Track:");
+	lcd.setCursor(7, 1);
+    lcd.print(songNumber);
   }
 }
